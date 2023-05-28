@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.app.appsinrek.viewmodels.MainViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        tools:context=".main.post.FinalStepActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar"
+            app:layout_collapseMode="none"
+            app:title="@string/title_post_edit"
+            app:titleTextColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@color/white"
+            android:hint="@string/enter_your_caption"
+            android:inputType="textMultiLine"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            android:minHeight="48dp"
+            android:padding="@dimen/_8sdp"
+            android:text="">
+
+            <requestFocus />
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <FrameLayout
+            android:id="@+id/fram"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imagePost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/_1"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/playButton"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/play_button"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+        </FrameLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/_8sdp"
+                android:backgroundTint="@color/lite_blue"
+                android:backgroundTintMode="src_over"
+                android:text="@string/update"
+                app:cornerRadius="@dimen/_50sdp"
+                app:elevation="0dp"
+                app:icon="@drawable/send"
+                app:iconGravity="end"
+                app:iconPadding="8dp"
+                app:iconSize="16dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

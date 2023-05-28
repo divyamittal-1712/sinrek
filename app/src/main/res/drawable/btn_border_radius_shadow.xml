@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- "shadow" -->
+    <item>
+        <shape android:shape="rectangle" >
+            <solid android:color="#e3dada"/>
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+
+    <item android:top="2px" android:bottom="4px" android:left="1px" android:right="1px">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/>
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+</layer-list>
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android" >-->
+
+<!--    <solid android:color="@android:color/white" ></solid>-->
+
+<!--    <stroke-->
+<!--        android:width="0dp"-->
+<!--        android:color="@color/greyLite" >-->
+<!--    </stroke>-->
+
+
+<!--    <corners-->
+<!--        android:bottomLeftRadius="20dp"-->
+<!--        android:bottomRightRadius="20dp"-->
+<!--        android:radius="12dp"-->
+<!--        android:topLeftRadius="20dp"-->
+<!--        android:topRightRadius="20dp" />-->
+<!--</shape>-->
+
+
+
+    <!--    <gradient-->
+    <!--        android:angle="90"-->
+    <!--        android:centerColor="@android:color/white"-->
+    <!--        android:centerY="0.2"-->
+    <!--        android:endColor="#99e0e0e0"-->
+    <!--        android:startColor="@android:color/white"-->
+    <!--        android:type="linear" />-->

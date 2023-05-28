@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.app.appsinrek.viewmodels.MainViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_layout"
+                android:background="@color/white"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:titleEnabled="false"
+                    app:contentScrim="@color/white">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        app:layout_collapseMode="parallax" />
+
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar_id"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/bg_toolbar"
+                        android:layout_height="48dp"
+                        app:contentInsetStart="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/ic_back"
+                                android:layout_width="37dp"
+                                android:layout_height="match_parent"
+                                android:paddingHorizontal="9dp"
+                                android:src="@drawable/ic_back_1" />
+
+                            <TextView
+                                android:id="@+id/profile_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/ic_back"
+                                android:text="Profile"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/opensans_medium"
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+                    </androidx.appcompat.widget.Toolbar>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="48dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="bottom"
+                        android:paddingHorizontal="@dimen/_8sdp">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnEditProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_white"
+                            android:gravity="center"
+                            android:minWidth="@dimen/_80sdp"
+                            android:paddingHorizontal="@dimen/_16sdp"
+                            android:text="Edit Profile"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black80"
+                            android:textSize="@dimen/_12ssp"
+                            app:cornerRadius="@dimen/_20sdp" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_90sdp"
+                            android:layout_gravity="center_horizontal"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/user2"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            app:civ_border_color="#1A000000"
+                            app:civ_border_width="1dp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:text="name"
+                            android:fontFamily="@font/muli_bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+
+                       <!-- Removed profile user name at 12/18/2022
+                       <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/username"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:text="@string/name"
+                            android:fontFamily="@font/muli_bold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />-->
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/mtbFollow"
+                            android:layout_width="@dimen/_76sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="0dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="0dp"
+                            android:includeFontPadding="false"
+                            android:backgroundTintMode="src_over"
+                            android:fontFamily="@font/muli_bold"
+                            android:text="@string/following"
+                            android:textSize="@dimen/_11sdp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:cornerRadius="@dimen/_50sdp"
+                            app:elevation="0dp"
+                            app:iconGravity="end"
+                            tools:ignore="SpeakableTextPresentCheck"/>
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="@dimen/_24sdp"-->
+<!--                            android:layout_marginHorizontal="@dimen/_32sdp"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            android:background="@drawable/bg_black"-->
+<!--                            android:gravity="center"-->
+<!--                            android:minWidth="@dimen/_55sdp"-->
+<!--                            android:paddingHorizontal="@dimen/_16sdp"-->
+<!--                            android:text="@string/follow"-->
+<!--                            android:textAllCaps="false"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_12ssp"-->
+<!--                            app:cornerRadius="@dimen/_20sdp" />-->
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/dob"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/opensans_regular"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="14dp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/bio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/opensans_regular"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="14dp" />
+
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/link"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:autoLink="all"
+                                android:fontFamily="@font/opensans_regular"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textColorLink="@color/purple_500"
+                                android:textSize="14dp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/instagram_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_marginRight="@dimen/_12sdp"
+                            android:background="@color/transparent"
+                            android:drawableStart="@drawable/instagram_icon"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:fontFamily="@font/muli_bold"
+                            android:gravity="left|center"
+                            android:minWidth="@dimen/_80sdp"
+                            android:text="ajay_nagar"
+                            android:textAllCaps="false"
+                            android:textColor="@color/instagram_profile"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/twitter_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_24sdp"
+                            android:background="@color/transparent"
+                            android:drawableStart="@drawable/twitter_icon"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:fontFamily="@font/muli_bold"
+                            android:gravity="left|center"
+                            android:minWidth="@dimen/_80sdp"
+                            android:text="ayay_nagar"
+                            android:textAllCaps="false"
+                            android:textColor="@color/twitter_profile"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:paddingHorizontal="10.40dp"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/count_followers"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_margin="@dimen/_2sdp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_white"
+                                android:gravity="center"
+                                android:minWidth="@dimen/_80sdp"
+                                android:paddingHorizontal="@dimen/_16sdp"
+                                android:fontFamily="@font/opensans_medium"
+                                android:text="0 Followers"
+                                android:textAllCaps="false"
+                                android:textStyle="normal"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+                                app:cornerRadius="@dimen/_20sdp" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/count_following"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_margin="@dimen/_2sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_white"
+                                android:gravity="center"
+                                android:minWidth="@dimen/_80sdp"
+                                android:paddingHorizontal="@dimen/_16sdp"
+                                android:fontFamily="@font/opensans_medium"
+                                android:text="0 Following"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+                                android:textStyle="normal"
+                                app:cornerRadius="@dimen/_20sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <!--Ui for suggestion list -->
+                        <FrameLayout
+                            android:id="@+id/suggestions_row"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/_10sdp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCaptionBlockBottom">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/inner_recycler_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/column_suggestions" />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:weightSum="1">
+
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@id/postCount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Posts 0"
+                                android:textStyle="normal"
+                                android:fontFamily="@font/opensans_medium"
+                                android:textColor="@color/black"
+                                android:textSize="14dp" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/more"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_more_vert_24" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:background="@drawable/bg_grey4"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    app:spanCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    />
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/recycler"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:paddingVertical="@dimen/_10sdp"-->
+<!--                    android:clipToPadding="false"-->
+<!--                    tools:itemCount="10"-->
+<!--                    tools:listitem="@layout/row_dashboard"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                    android:background="@color/white" />-->
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

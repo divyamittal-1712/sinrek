@@ -1,0 +1,116 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fram_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingRight="@dimen/_10sdp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/suggestion_card_border"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_11ssp"
+        tools:ignore="MissingConstraints">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintWidth_percent="0.20"
+                app:layout_constraintDimensionRatio="1"
+                android:layout_marginTop="@dimen/_9sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/white"
+                android:src="@drawable/user2"
+                android:scaleType="fitCenter"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="1dp"
+                />
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/profile_image"-->
+<!--                android:layout_width="@dimen/_60sdp"-->
+<!--                android:layout_height="@dimen/_60sdp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_marginTop="@dimen/_11sdp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:src="@drawable/user2" />-->
+
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="@dimen/_11sdp"
+                android:layout_height="@dimen/_11sdp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:src="@drawable/close_red"
+                app:tint="@color/grey" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/muli_regular"
+            android:text="Full Name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/muli_bold"
+            android:text="Name"
+            android:textColor="@color/colorBlackLt"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/followers_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/muli_regular"
+            android:text="567 Followers"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mtbFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/bg_suggestion_black"
+            android:gravity="center"
+            android:text="@string/follow"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            app:cornerRadius="@dimen/_20sdp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

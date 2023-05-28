@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable name="title" type="String"/>
+    <variable name="description" type="String"/>
+    <variable name="checked" type="boolean"/>
+    <variable name="buttonId" type="int"/>
+</data>
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left|center">
+        <RadioButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:drawableTint="@color/green_lite"
+            android:clickable="false"
+            android:checked="@{checked}"
+            android:button="@drawable/radio_selector"
+            android:id="@+id/radio_button1"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left|center">
+            <TextView
+                android:id="@+id/title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/_1sdp"
+                android:text="@{title}"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/muli_bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"/>
+            <TextView
+                android:id="@+id/title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{description}"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/muli_regular"
+                android:textColor="@color/greyLite"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

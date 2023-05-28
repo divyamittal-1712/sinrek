@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.appsinrek">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen"
+        android:requestLegacyExternalStorage="true"
+        tools:ignore="DataExtractionRules" >
+        <service
+            android:name="com.app.appsinrek.fcm.services.MyFcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/app_icon_round" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <service
+            android:name="com.app.appsinrek.downloader.DownloadService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.ixuea.android.downloader.DOWNLOAD_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.appsinrek.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity
+            android:name="com.app.appsinrek.utils.AppWebView"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.dashboard.VideoViewActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen.NoActionBar" />
+        <activity
+            android:name="com.app.appsinrek.main.report.ReportFormActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.report.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.app.appsinrek.main.post.PhotoCropActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.post.FinalStepActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.post.FinalStepActivity2"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.post.EditPostActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.dashboard.PostShareActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.PostSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.PrivacySettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.NotificationSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.BlockedActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.ChangePasswordSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.AboutSettingActivity"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".main.profile.FollowersActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />-->
+<!--        <activity-->
+<!--            android:name=".main.profile.FollowingActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" /> &lt;!&ndash; <activity &ndash;&gt;-->
+        <!-- android:name=".main.search.SearchFragment" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" /> -->
+        <activity
+            android:name="com.app.appsinrek.main.comment.CommentActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.main.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.main.profile.EditProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.main.settings.SettingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.ResetPassword"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.Register"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.PhoneAuthVerify"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.Login"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.Languages"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.Welcome"
+            android:exported="false"
+            android:configChanges="locale"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.PhoneAuth"
+            android:exported="false"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.phonenumberui.CountryCodeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="locked"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.app.appsinrek.intro.Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

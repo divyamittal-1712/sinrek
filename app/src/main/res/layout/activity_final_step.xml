@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.app.appsinrek.viewmodels.MainViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1"
+            tools:context=".main.post.FinalStepActivity">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/bg_toolbar"
+                app:layout_collapseMode="none"
+                app:titleTextColor="@color/black" />
+
+
+            <FrameLayout
+                android:id="@+id/fram"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imagePost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/_1"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helvetica_bold_oblique"
+                    android:hint="@string/enter_your_text"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@={mainViewModel.text}">
+
+                    <requestFocus />
+                </androidx.appcompat.widget.AppCompatEditText>
+
+                <RelativeLayout
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:background="@color/colorWhiteLt">
+
+                    <VideoView
+                        android:id="@+id/autoPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivVolume"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/bg_mute_icon"
+                        android:padding="5dp"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_volume_on" />
+
+                </RelativeLayout>
+            </FrameLayout>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/trim"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    app:fabCustomSize="35dp"
+                    app:maxImageSize="22dp"
+                    android:elevation="5dp"
+                    app:tint="@color/white"
+                    app:srcCompat="@drawable/cut"
+                    app:backgroundTint="@color/black"
+                    android:background="@color/colorBlack"
+                    tools:ignore="MissingConstraints" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/crop"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    app:fabCustomSize="35dp"
+                    app:maxImageSize="22dp"
+                    android:elevation="5dp"
+                    app:tint="@color/white"
+                    app:srcCompat="@drawable/crop"
+                    app:backgroundTint="@color/black"
+                    android:background="@color/black"
+                    tools:ignore="MissingConstraints" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mtPost"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/lite_blue"
+                android:fontFamily="@font/muli_bold"
+                android:backgroundTintMode="src_over"
+                android:text="@string/next"
+                app:cornerRadius="@dimen/_50sdp"
+                app:elevation="0dp"
+                app:iconGravity="end"
+                app:iconPadding="8dp"
+                app:iconSize="16dp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

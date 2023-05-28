@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ebebeb"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_layout"
+        layout="@layout/toolbar_quick_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rlCountry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSearchCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_toEndOf="@+id/ivSearch"
+                android:backgroundTint="@android:color/transparent"
+                android:gravity="start|center_vertical"
+                android:hint="@string/search_hint"
+                android:imeOptions="flagNoExtractUi"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@android:color/primary_text_light_nodisable"
+                android:textSize="18sp"
+                android:visibility="visible"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RelativeLayout>
+
+        <com.app.appsinrek.phonenumberui.recycler.FastScrollRecyclerView
+            android:id="@+id/rvCountryCode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rlSearch"
+            android:background="@color/color_white"
+            android:dividerHeight="2dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlSearch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/no_result_found"
+            android:textColor="@android:color/primary_text_light"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

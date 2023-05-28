@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <layer-list>
+
+            <item>
+                <shape>
+                    <corners android:radius="@dimen/_50sdp" />
+                    <solid android:color="@color/white"/>
+                    <padding android:bottom="@dimen/_8sdp" android:left="@dimen/_12sdp" android:right="@dimen/_12sdp" android:top="@dimen/_8sdp" />
+                </shape>
+            </item>
+
+            <item
+                android:drawable="@drawable/dropdown"
+                android:width="@dimen/_10sdp"
+                android:height="@dimen/_6sdp"
+                android:gravity="center_vertical|right" />
+
+        </layer-list>
+
+    </item>
+
+</selector>

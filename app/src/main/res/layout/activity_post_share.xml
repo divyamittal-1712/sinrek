@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".main.dashboard.PostShareActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_id"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_toolbar"
+                android:layout_height="48dp"
+                app:contentInsetStart="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ic_back"
+                        android:layout_width="37dp"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="9dp"
+                        android:src="@drawable/ic_back_1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/ic_back"
+                        android:text="@string/title_share"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="normal" />
+
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/RL_shared_post_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/prof_photo_id_shared"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="8dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/user2"
+                        android:visibility="visible" />
+
+
+                    <TextView
+                        android:id="@+id/username_id_shared"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/muli_bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/prof_photo_id_shared"
+                        android:text="@string/username"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/time_ago_shared"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/muli_regular"
+                        android:text="15 days a go"
+                        android:textSize="10dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_below="@+id/RL_shared_post_detail"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="12dp">
+
+                    <EditText
+                        android:id="@+id/tv_caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/write_a_caption"
+                        android:fontFamily="@font/muli_regular"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_caption"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/rectangle_border">
+
+                    <RelativeLayout
+                        android:id="@+id/RL_user_post_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/prof_photo_id"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:padding="8dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/user2"
+                            android:visibility="visible" />
+
+
+                        <TextView
+                            android:id="@+id/username_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@+id/prof_photo_id"
+                            android:fontFamily="@font/muli_bold"
+                            android:text="@string/username"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/time_ago"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="12dp"
+                            android:fontFamily="@font/muli_regular"
+                            android:text="15 days a go"
+                            android:textSize="10dp" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_added_caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/RL_user_post_detail"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/muli_regular"
+                        android:hint="@string/write_a_caption"
+                        android:textSize="14dp" />
+
+                    <ViewFlipper
+                        android:id="@+id/item_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:layout_below="@+id/tv_added_caption"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="end">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tick_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_gravity="end"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:backgroundTint="@color/lite_blue"
+                        android:backgroundTintMode="src_over"
+                        android:fontFamily="@font/muli_bold"
+                        android:text="@string/done"
+                        app:cornerRadius="@dimen/_50sdp"
+                        app:elevation="0dp"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

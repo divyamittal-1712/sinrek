@@ -1,0 +1,25 @@
+//pluginManagement {
+//    ext.kotlin_version = '1.6.21'
+//    repositories {
+//        gradlePluginPortal()
+//        google()
+//        maven { url 'https://google.bintray.com/exoplayer/' }
+//        mavenCentral()
+//        jcenter()
+//        maven { url "https://www.jitpack.io" }
+//    }
+//}
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//        jcenter()
+//        maven { url "https://www.jitpack.io" }
+//        maven { url 'https://google.bintray.com/exoplayer/' }
+//    }
+//}
+//rootProject.name = "SocialMediaApp"
+include ':app'
+include ':library'
+include ':crop'

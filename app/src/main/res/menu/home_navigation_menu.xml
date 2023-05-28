@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="@string/dashboard"
+        app:showAsAction="always"
+        android:iconTint="@color/selector_item"
+        android:icon="@drawable/home"
+        />
+
+    <item
+        android:id="@+id/nav_add"
+        android:title="@string/profile"
+        app:showAsAction="always"
+        android:iconTint="@color/selector_item"
+        android:icon="@drawable/add"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Settings"
+        app:showAsAction="always"
+        android:iconTint="@color/selector_item"
+        android:icon="@drawable/group"/>
+    <item
+        android:id="@+id/nav_notification"
+        android:title="Notification"
+        android:iconTint="@color/selector_item"
+        android:icon="@drawable/notification"
+        app:showAsAction="always"/>
+
+</menu>

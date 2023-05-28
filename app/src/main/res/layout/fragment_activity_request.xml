@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".main.dashboard.DashboardFragment">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@drawable/bg_toolbar"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/muli_bold"
+            app:title="@string/following_activity"
+            app:layout_constraintTop_toTopOf="parent"/>
+<!--        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--            android:id="@+id/ll_type2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/_12sdp"-->
+<!--            android:layout_marginTop="@dimen/_8sdp"-->
+<!--            android:layout_marginBottom="@dimen/_8sdp"-->
+<!--            android:gravity="center"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <com.google.android.material.tabs.TabLayout-->
+<!--                android:id="@+id/mtTabs"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_40sdp"-->
+<!--                android:background="@drawable/bg_blue_lite"-->
+<!--                android:clipToPadding="true"-->
+<!--                app:tabIndicator="@drawable/bg_white"-->
+<!--                app:tabIndicatorAnimationDuration="600"-->
+<!--                app:tabIndicatorAnimationMode="elastic"-->
+<!--                app:tabIndicatorColor="#FFFFFF"-->
+<!--                app:tabIndicatorGravity="center"-->
+<!--                app:tabIndicatorHeight="@dimen/_34sdp"-->
+<!--                app:tabPaddingEnd="2dp"-->
+<!--                app:tabPaddingStart="2dp"-->
+<!--                app:tabSelectedTextColor="#000000"-->
+<!--                app:tabTextColor="@color/white">-->
+
+<!--                <com.google.android.material.tabs.TabItem-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:text="@string/following_activity" />-->
+
+<!--                <com.google.android.material.tabs.TabItem-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_marginRight="2dp"-->
+<!--                    android:text="@string/requests" />-->
+<!--            </com.google.android.material.tabs.TabLayout>-->
+<!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recycler"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:paddingHorizontal="@dimen/_8sdp"-->
+<!--            android:paddingVertical="@dimen/_8sdp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/ll_type2"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            tools:layout_editor_absoluteX="0dp"-->
+<!--            tools:listitem="@layout/row_new_request" />-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recycler2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:paddingHorizontal="@dimen/_8sdp"-->
+<!--            android:paddingVertical="@dimen/_8sdp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/ll_type2"-->
+<!--            tools:listitem="@layout/row_activities" />-->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_activities" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:indeterminateTint="@color/colorAccent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.app.appsinrek.viewmodels.MainViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:context=".main.post.FinalStepActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bg_toolbar"
+            app:layout_collapseMode="none"
+            app:titleTextColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:fontFamily="@font/muli_regular"
+            android:background="@color/white"
+            android:hint="@string/enter_your_caption"
+            android:inputType="textMultiLine"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            android:maxLines="10"
+            android:minHeight="200dp"
+            android:gravity="top"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:text="@={mainViewModel.caption}">
+
+            <requestFocus />
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <FrameLayout
+            android:id="@+id/fram"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/rlImagePost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imagePost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/_1"/>
+            </RelativeLayout>
+
+            <ScrollView
+                android:id="@+id/svText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/muli_regular"
+                    android:hint="@string/enter_your_text"
+                    android:inputType="textMultiLine"
+                    android:textCursorDrawable="@drawable/cursor_drawable"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@={mainViewModel.text}" />
+            </ScrollView>
+
+            <RelativeLayout
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <VideoView
+                    android:id="@+id/autoPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivVolume"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_mute_icon"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_volume_on" />
+
+            </RelativeLayout>
+        </FrameLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/post_send"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/_8sdp"
+                android:backgroundTint="@color/lite_blue"
+                android:backgroundTintMode="src_over"
+                android:onClick="@{mainViewModel::myPost}"
+                android:text="@string/post"
+                android:textAllCaps="true"
+                android:fontFamily="@font/muli_bold"
+                app:cornerRadius="@dimen/_50sdp"
+                app:elevation="0dp"
+                app:icon="@drawable/send"
+                app:iconGravity="end"
+                app:iconPadding="8dp"
+                app:iconSize="16dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

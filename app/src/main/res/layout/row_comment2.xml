@@ -1,0 +1,146 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:id="@+id/fram"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@color/white">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/_26sdp"
+            android:layout_height="@dimen/_26sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/user2"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/ll_replay"
+            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintTop_toTopOf="@+id/profile_image">
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_medium"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="13dp"/>
+
+            <TextView
+                android:id="@+id/comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:text=""
+                android:textStyle="normal"
+                app:layout_constraintVertical_bias="0.2" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_replay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_image"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/child_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/reply"
+                android:fontFamily="@font/opensans_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="normal"
+                app:layout_constraintVertical_bias="0.2" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/like_icon"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/like"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_image" />
+            <TextView
+                android:id="@+id/likeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="11dp"
+                android:textStyle="normal"
+                app:layout_constraintVertical_bias="0.2" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llDelete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/cmt_delete_popuo_style"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="-2dp"
+            android:paddingVertical="@dimen/_7sdp"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayoutCompat"
+            app:layout_constraintEnd_toStartOf="@+id/ll_replay"
+            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat">
+
+            <TextView
+                android:id="@+id/delete_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli_bold"
+                android:gravity="center"
+                android:text="Selected for delete!"
+                android:textColor="@color/red"
+                android:textStyle="normal"
+                android:textSize="@dimen/_12ssp" />
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/ivDeleteReply"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:maxHeight="@dimen/_20sdp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:src="@drawable/bin"-->
+<!--                android:tint="@color/white"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/profile_image"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/profile_image" />-->
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/ivCancel"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:maxHeight="@dimen/_20sdp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:src="@drawable/close"-->
+<!--                android:tint="@color/white"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/profile_image"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/profile_image" />-->
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+</layout>

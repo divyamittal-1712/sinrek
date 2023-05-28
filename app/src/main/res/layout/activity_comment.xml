@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.comment.CommentActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_toolbar"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/title_comments"
+            app:titleMarginStart="0dp"
+            app:titleTextColor="@color/black" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ic_back"
+                    android:layout_width="37dp"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="9dp"
+                    android:src="@drawable/ic_back_1" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/ic_back"
+                    android:text="Comments"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="@drawable/bg_toolbar"-->
+<!--            app:contentInsetLeft="0dp"-->
+<!--            app:contentInsetStart="0dp"-->
+<!--            app:contentInsetStartWithNavigation="0dp"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:title="@string/title_comments"-->
+<!--            app:titleMarginStart="0dp"-->
+<!--            app:titleTextColor="@color/black" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_16sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/ll_replay"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0"
+            tools:itemCount="3"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/row_comment" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_replay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+            android:gravity="start">
+            <TextView
+                android:id="@+id/parent_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text=""/>
+            <TextView
+                android:id="@+id/reply_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:fontFamily="@font/muli_bold"
+                android:textColor="@color/colorThemeRed"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toBottomOf="@+id/cancel_action"
+                app:layout_constraintEnd_toStartOf="@+id/cancel_action"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/recycler"
+                app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+                app:layout_constraintTop_toTopOf="@+id/cancel_action" />
+
+            <TextView
+                android:id="@+id/cancel_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/btn_cancel"
+                android:fontFamily="@font/muli_bold"
+                android:textColor="@color/black80"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/reply_to" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@drawable/bg_comment"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="21dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/user2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:riv_corner_radius="@dimen/_50sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/tv_comment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toStartOf="@+id/send"
+                android:layout_toEndOf="@+id/profile_image"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/muli_regular"
+                android:hint="@string/hint_type_here"
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="@dimen/_4sdp"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/send"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:foregroundGravity="right"
+                android:padding="@dimen/_1sdp"
+                android:rotation="-20"
+                android:background="@drawable/bg_white"
+                android:src="@drawable/send"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
